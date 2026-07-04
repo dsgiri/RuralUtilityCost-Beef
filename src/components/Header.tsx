@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { ViewState } from '../types';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-interface HeaderProps {
-  currentView: ViewState;
-  setView: (view: ViewState) => void;
-}
-
-export function Header({ currentView, setView }: HeaderProps) {
+export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { label: 'Home', view: 'home' },
-    { label: 'Plan', url: 'https://plan.ruralutilitycost.com/' },
-    { label: 'Forecast', url: 'https://forecast.ruralutilitycost.com/' }, 
-    { label: 'What If', url: 'https://whatif.ruralutilitycost.com/' },
-    { label: 'Predictor', url: 'https://predictor.ruralutilitycost.com/' },
-    { label: 'My favorites', view: 'home', hash: '#favorites' },
-    { label: 'About', url: 'https://ruralutilitycost.com/about' },
-    { label: 'Contact', url: 'https://www.ruralutilitycost.com/contact' },
+    { label: 'Plan', url: 'https://plan.ruralopstools.com/' },
+    { label: 'Forecast', url: 'https://forecast.ruralopstools.com/' }, 
+    { label: 'What If', url: 'https://whatif.ruralopstools.com/' },
+    { label: 'Predictor', url: 'https://predictor.ruralopstools.com/' },
+    { label: 'My favorites', to: '/', hash: '#favorites' },
+    { label: 'About', url: 'https://ruralopstools.com/about' },
+    { label: 'Contact', url: 'https://www.ruralopstools.com/contact' },
   ];
 
-  const handleNavClick = (view: ViewState, hash?: string) => {
-    setView(view);
+  const handleNavClick = (to: string, hash?: string) => {
+    navigate(to);
     setMobileMenuOpen(false);
     
     if (hash) {
@@ -42,17 +38,17 @@ export function Header({ currentView, setView }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2 border-r border-gray-100 pr-4 sm:pr-6 mr-2">
-            <button 
-              onClick={() => handleNavClick('home')}
+            <Link 
+              to="/"
               className="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2"
             >
               <div className="w-5 h-5 sm:w-6 sm:h-6 bg-orange-700 rounded-sm flex items-center justify-center text-[10px] text-white">B</div>
               <span>BEEF</span>
               <div className="flex flex-col text-left ml-1 sm:ml-2 hidden sm:flex">
                 <span className="text-[10px] uppercase text-gray-400 font-bold leading-tight">Ecosystem</span>
-                <span className="text-xs font-semibold text-blue-900 leading-tight">ruralutilitycost.com</span>
+                <span className="text-xs font-semibold text-blue-900 leading-tight">ruralopstools.com</span>
               </div>
-            </button>
+            </Link>
           </div>
           
           <nav aria-label="Main Navigation" className="hidden md:flex space-x-1 lg:space-x-2 flex-1 ml-2 lg:ml-4 text-sm font-medium">
@@ -61,6 +57,8 @@ export function Header({ currentView, setView }: HeaderProps) {
                 <a
                   key={item.label}
                   href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="transition-colors sidebar-link px-3 py-2 rounded-md text-gray-600 hover:bg-gray-50"
                 >
                   {item.label}
@@ -68,9 +66,9 @@ export function Header({ currentView, setView }: HeaderProps) {
               ) : (
                 <button
                   key={item.label}
-                  onClick={() => handleNavClick(item.view as ViewState, item.hash)}
+                  onClick={() => handleNavClick(item.to as string, item.hash)}
                   className={`transition-colors sidebar-link px-3 py-2 rounded-md ${
-                    currentView === item.view && !item.hash ? 'bg-blue-50 text-blue-900' : 'text-gray-600'
+                    location.pathname === item.to && !item.hash ? 'bg-blue-50 text-blue-900' : 'text-gray-600 hover:bg-gray-50'
                   }`}
                 >
                   {item.label}
@@ -99,6 +97,8 @@ export function Header({ currentView, setView }: HeaderProps) {
                 <a
                   key={item.label}
                   href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full text-left px-3 py-2 rounded-md font-medium text-sm text-gray-600 hover:bg-gray-50 text-gray-900"
                 >
                   {item.label}
@@ -106,9 +106,9 @@ export function Header({ currentView, setView }: HeaderProps) {
               ) : (
                 <button
                   key={item.label}
-                  onClick={() => handleNavClick(item.view as ViewState, item.hash)}
+                  onClick={() => handleNavClick(item.to as string, item.hash)}
                   className={`block w-full text-left px-3 py-2 rounded-md font-medium text-sm ${
-                    currentView === item.view && !item.hash
+                    location.pathname === item.to && !item.hash
                       ? 'bg-blue-50 text-blue-900'
                       : 'text-gray-600 hover:bg-gray-50 text-gray-900'
                   }`}

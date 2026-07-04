@@ -23,7 +23,7 @@ export function DisclaimerView() {
         
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mt-8 mb-4">No Liability</h2>
         <p className="text-sm sm:text-base">
-          Rural Utility Cost, its ecosystem subdomains, and its developers shall not be held legally liable or financially responsible for any losses, damages, or enterprise consequences resulting from reliance on these estimation tools. You assume full responsibility and risk for the use of the information and tools provided. Use your best localized judgment.
+          Rural Ops Tools, its ecosystem subdomains, and its developers shall not be held legally liable or financially responsible for any losses, damages, or enterprise consequences resulting from reliance on these estimation tools. You assume full responsibility and risk for the use of the information and tools provided. Use your best localized judgment.
         </p>
       </div>
     </div>

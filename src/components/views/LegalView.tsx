@@ -7,7 +7,7 @@ export function LegalView() {
       
       <div className="prose prose-lg text-gray-700 space-y-6">
         <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-8 text-orange-800 text-sm">
-          <strong>Important Notice:</strong> You are currently viewing the legal guidelines derived from the Rural Utility Cost master site, specifically adapted for the Beef hub.
+          <strong>Important Notice:</strong> You are currently viewing the legal guidelines derived from the Rural Ops Tools master site, specifically adapted for the Beef hub.
         </div>
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Estimates and Decision Support Only</h2>
@@ -22,7 +22,7 @@ export function LegalView() {
         
         <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">No Liability</h2>
         <p>
-          Rural Utility Cost and its developers shall not be held legally liable or financially responsible for any losses, damages, or enterprise consequences resulting from reliance on these estimation tools. Use your best localized judgment.
+          Rural Ops Tools and its developers shall not be held legally liable or financially responsible for any losses, damages, or enterprise consequences resulting from reliance on these estimation tools. Use your best localized judgment.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Privacy Framework</h2>

@@ -1,17 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Hero } from '../Hero';
 import { Favorites } from '../Favorites';
 import { ToolGrid } from '../ToolGrid';
-import { Tool, ViewState } from '../../types';
+import { Tool } from '../../types';
 
 interface HomeViewProps {
   tools: Tool[];
   favorites: string[];
   toggleFavorite: (id: string) => void;
-  setView: (view: ViewState) => void;
 }
 
-export function HomeView({ tools, favorites, toggleFavorite, setView }: HomeViewProps) {
+export function HomeView({ tools, favorites, toggleFavorite }: HomeViewProps) {
+  const navigate = useNavigate();
   return (
     <div className="pb-12">
       <Hero />
@@ -22,7 +23,7 @@ export function HomeView({ tools, favorites, toggleFavorite, setView }: HomeView
         onLaunch={(id) => {
           const tool = tools.find(t => t.id === id);
           if (tool && tool.slug) {
-            setView(tool.slug as ViewState);
+            navigate(`/${tool.slug}`);
           }
         }}
       />
@@ -33,7 +34,7 @@ export function HomeView({ tools, favorites, toggleFavorite, setView }: HomeView
         onLaunch={(id) => {
           const tool = tools.find(t => t.id === id);
           if (tool && tool.slug) {
-            setView(tool.slug as ViewState);
+            navigate(`/${tool.slug}`);
           }
         }}
       />
@@ -67,7 +68,7 @@ export function HomeView({ tools, favorites, toggleFavorite, setView }: HomeView
             <div className="relative z-10 flex flex-col h-full">
               <h2 className="text-sm font-bold mb-2 text-blue-300">Decision Support Guarantee</h2>
               <p className="text-xs text-slate-300 leading-relaxed mb-4 flex-grow">
-                Beef is part of the Rural Utility Cost ecosystem. Our tools are designed for agricultural professionals to run "What If" scenarios with real-world accuracy. All data is processed locally in your browser for maximum privacy.
+                Beef is part of the Rural Ops Tools ecosystem. Our tools are designed for agricultural professionals to run "What If" scenarios with real-world accuracy. All data is processed locally in your browser for maximum privacy.
               </p>
               <div className="flex items-center gap-2 mt-auto">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>

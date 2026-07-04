@@ -7,7 +7,7 @@ export function LicenseView() {
       
       <div className="prose prose-lg text-gray-700 space-y-6">
         <p>
-          The code powering the Beef App within the <strong>Rural Utility Cost</strong> ecosystem is provided subject to standard open-source licensing principles for educational and professional demonstration purposes, or as otherwise outlined by the master site.
+          The code powering the Beef App within the <strong>Rural Ops Tools</strong> ecosystem is provided subject to standard open-source licensing principles for educational and professional demonstration purposes, or as otherwise outlined by the master site.
         </p>
         
         <div className="bg-gray-100 p-6 rounded font-mono text-sm mt-8 border border-gray-200">
